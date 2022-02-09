@@ -4,20 +4,22 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  project_name = 'vagrant_django'
-  $memory = 1024
-  $cpus = 2
+
+  config.env.enable
 
   config.vm.provider :virtualbox do |vb|
-    config.vm.box = "ubuntu/xenial64"
-    vb.memory = $memory
-    vb.cpus = $cpus
+    config.vm.box = ENV['BOX_NAME']
+    vb.memory = ENV['MEMORY']
+    vb.cpus = ENV['CPUS']
   end
 
 
   config.vm.network "forwarded_port", guest: 8000, host: 8000
 
-  config.vm.synced_folder ".", "/home/vagrant/#{project_name}"
+  config.vm.synced_folder ".", "/home/vagrant/#{ENV['PROJECT_NAME']}"
 
-  config.vm.provision "shell", path: "install_packages.sh", :args => "#{project_name}"
+  config.vm.provision "shell", inline: "echo hello from inline shell"
+
+  config.vm.provision "shell", path: "install_packages.sh", :args => "#{ENV['PROJECT_NAME']}"
+
 end
