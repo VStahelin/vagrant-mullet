@@ -4,7 +4,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-
+# vagrant plugin install vagrant-env
   config.env.enable
 
   config.vm.provider :virtualbox do |vb|
@@ -12,7 +12,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.memory = ENV['MEMORY']
     vb.cpus = ENV['CPUS']
   end
-
 
   config.vm.network "forwarded_port", guest: 8000, host: 8000
 
