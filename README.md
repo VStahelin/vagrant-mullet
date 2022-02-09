@@ -1,6 +1,6 @@
 # Using Vagrant With Parallels Desktop #
 
-A simple skeleton of Django application provisioned with Vagrant + Parallels Desktop. This example is for beginners that need some starting ground to experiment with.
+A simple skeleton of Django application provisioned with Vagrant. This example is for beginners that need some starting ground to experiment with.
 
 Contents:
 
@@ -11,11 +11,7 @@ Contents:
 
 ## Getting Started ##
 
-First, [install Vagrant](http://www.vagrantup.com/downloads.html). Then use the built in plugin manager to install Parallels Desktop compatibility module:
-
-```bash
-vagrant plugin install vagrant-parallels
-```
+First, [install Vagrant](http://www.vagrantup.com/downloads.html). Then [install Virtualbox](https://www.virtualbox.org/), it will be our provider
 
 Then get the sample code: 
 
